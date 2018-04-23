@@ -1,5 +1,7 @@
 package shop;
 
+import expections.KeinArtikelExpection;
+
 import static java.lang.Math.round;
 
 public class Kunde implements DatenKunde{
@@ -20,8 +22,12 @@ public class Kunde implements DatenKunde{
     }
 
 
-    public void kauft(Artikel a){
-        wkorb.add ( a );
+    public void kauft(Artikel a) throws KeinArtikelExpection {
+        try {
+            wkorb.add ( a );
+        } catch (KeinArtikelExpection keinArtikelExpection) {
+            keinArtikelExpection.printStackTrace ();
+        }
     }
 
     public double bezahlt(){

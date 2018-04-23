@@ -1,5 +1,7 @@
 package shop;
 
+import expections.KeinArtikelExpection;
+
 public class Warenkorb {
     private int anzahl = 0;
     private Artikel artFeld[];
@@ -9,8 +11,8 @@ public class Warenkorb {
         this.artFeld = new Artikel[100];
     }
 
-    public void add(Artikel a){
-        if (a == null)return;
+    public void add(Artikel a) throws KeinArtikelExpection {
+        if (a == null)throw new KeinArtikelExpection ();
         if (anzahl < 100){
             if (a != null){
                 artFeld[anzahl]= a;

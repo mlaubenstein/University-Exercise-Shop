@@ -1,19 +1,26 @@
 package main;
 
+import expections.KeinArtikelExpection;
+import expections.PreisIstNullExpection;
 import shop.Kunde;
 import shop.Artikel;
-import shop.Warenkorb;
+
 
 public class Main {
 
-    public static void main (String [] args){
+    public static void main (String [] args) throws PreisIstNullExpection, KeinArtikelExpection {
 
 
         Kunde p = new Kunde ("Peter");
         Kunde i = new Kunde ("Ina");
-        i.kauft(new Artikel("Kleid" ,199.99));
-        i.kauft(new Artikel("Kette" ,499.));
-        p.kauft(new Artikel("Smartphone" ,600.));
+      //  try {
+            i.kauft(new Artikel("Kleid" , 6));
+
+       // } catch (PreisIstNullExpection übergebenerWertLeerExpection) {
+       //     übergebenerWertLeerExpection.printStackTrace ();
+       // }
+        i.kauft(new Artikel("Kette" ,10));
+        p.kauft(new Artikel("Smartphone" ,0));
 
 
         String petersRechnungsText;
